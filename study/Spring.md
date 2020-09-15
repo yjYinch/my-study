@@ -151,3 +151,68 @@ execution(修饰符 **返回值** 包名 **方法名(参数)** 方法抛出异�
 ```java
 @Pointcut("execution(public * com.zyj.springaop.controller.*Controller.*(..))")
 ```
+
+
+
+## 四、日志
+
+日志分为 日志门面、日志实现。具体参考链接：[日志级别](https://www.515code.com/posts/khsh8lxz/)
+
+Spring采用slf4j + logback的实现方式，比如，如下所示：
+
+```java
+private static final Logger log = LoggerFactory.getLogger(类名.class);
+```
+
+
+
+### 4.1 Logback的配置
+
+Logback主要有两种配置方式：application.yml配置 、logback-spring.xml配置
+
+#### 4.1.1 application.yml配置
+
+```yaml
+logging:
+  pattern:
+    console: "%d - %msg%n"
+  file:
+    name: /user/log/mylog.log #输出文件名字
+    path: /user/log/ #输出日子文件的路径
+  level: 
+  	类名或者包名: debug  #输出日志级别
+		
+```
+
+说明：
+
+（1）console：控制台
+
+​			%d：日期
+
+​			%msg：日志信息
+
+​			%n：换行
+
+（2）file:name
+
+
+
+#### 4.2.2 配置文件形式
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+	<appender>
+    </appender>
+    
+    <appender>
+    </appender>
+    
+    <appender>
+    </appender>
+</configuration>
+```
+
+
+
